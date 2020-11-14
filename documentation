@@ -25,3 +25,8 @@ Der Segmentation Fehler ist somit aufgetretetn, weil die Variable da noch nicht 
 Nach beheben des Fehlers läuft das Programm wieder. 
 
 Next step: User Eingabe. 
+
+User Eingabe war im Vergleich relativ einfach. Man muss nur prüfen ob etwas richtiges eingegeben worden ist, also eine RIchung oder exit. 
+Dies muss nur abgeglichen werden, und anschließend an das Spiel weitergegeben werden. 
+
+Nächster step ist ein Key. 

@@ -7,6 +7,7 @@
 #include <map>
 #include <algorithm>
 #include "Room.hpp"
+#include "Key.hpp"
 
 using namespace std;
 
