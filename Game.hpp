@@ -150,7 +150,7 @@ void Game::userInput()
              << "\t~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl;
         exit(0); 
     }
-    else //otherwise it was not valid
+    else if(!rightInput)//otherwise it was not valid
     {
         cout << "\t Unknown Command" << endl;
     }
