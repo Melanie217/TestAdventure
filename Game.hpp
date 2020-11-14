@@ -19,6 +19,7 @@ public:
     bool roomSetUp(); //reads rooms from a txt file
     map<string, Room *> rooms;  //sort Rooms with ID into map
     void userInput();
+    string roomKey = ""; 
 
 private:
     Room *currentRoom;  //points to current Room
@@ -32,6 +33,8 @@ Game::Game() //define Constructor
     end = false;
     string endRoom = "";
     roomSetUp();
+    roomKey = to_string((rand() %(rooms.size()-2))+1); //gets one random room that has a key - Except Start and End
+   
 }
 
 void Game::run() //define void run -> should run/start the game
@@ -39,7 +42,7 @@ void Game::run() //define void run -> should run/start the game
     while (!end) //game loop
     {
         currentRoom->printRoom();
-
+        cout << roomKey << endl;
         if (currentRoom->getId() == endRoom)
         {
             end = true;
