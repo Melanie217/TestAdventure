@@ -24,8 +24,10 @@ public:
 
 private:
     Room *currentRoom;  //points to current Room
+    Key *key;
     string endRoom;     //Saves endRoom so we can check if we arrived yet 
     bool end;           //is the game over? 
+    bool roomHasKey = false; 
 };
 
 Game::Game() //define Constructor
@@ -35,6 +37,7 @@ Game::Game() //define Constructor
     string endRoom = "";
     roomSetUp();
     roomKey = to_string((rand() %(rooms.size()-2))+1); //gets one random room that has a key - Except Start and End
+    key = new Key("ExitKey", roomKey); 
    
 }
 
@@ -42,8 +45,16 @@ void Game::run() //define void run -> should run/start the game
 {
     while (!end) //game loop
     {
-        currentRoom->printRoom();
-        cout << roomKey << endl;
+        if (currentRoom->getId() == key->getRoomID())
+        {
+            key->setPickedUp(true); 
+            roomHasKey = true; 
+        } else
+        {
+            roomHasKey = false; 
+        }
+        
+        currentRoom->printRoom(key->getPickedUp(), roomHasKey);
         if (currentRoom->getId() == endRoom)
         {
             end = true;

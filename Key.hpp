@@ -12,6 +12,7 @@ class Key
         Key(string name, string roomID);
         string getName(); 
         bool getPickedUp(); 
+        void setPickedUp(bool b); 
         string getRoomID(); 
 
     private:
@@ -47,6 +48,11 @@ bool Key::getPickedUp()
 string Key::getRoomID()
 {
     return roomID; 
+}
+
+void Key::setPickedUp(bool b)
+{
+    hasBeenPickedUp = b; 
 }
 
 

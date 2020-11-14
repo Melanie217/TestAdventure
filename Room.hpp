@@ -35,8 +35,9 @@ class Room
         Room(); 
         Room(string id, string name, string description); 
         void setDirections(string north, string east, string south, string west); 
-        void printRoom(); //Room Output to Terminal 
+        void printRoom(bool hasKey, bool roomKey); //Room Output to Terminal 
         void printDirections(); //Neighbours/Directions
+        int keys; 
         string getId();
         string getName(); 
         string getDescription(); 
@@ -48,6 +49,7 @@ class Room
         string name; 
         string description;
         string directions[4]; 
+        string roomHasKey = "Oh! Looks like you found a key! What is it for?"; 
 }; 
 
 Room::Room()
@@ -55,6 +57,7 @@ Room::Room()
     id = " "; 
     name = " "; 
     description = " "; 
+    keys = 0; 
 
     for(int i = 0; i<4; i++) //set direction to default
     {
@@ -67,6 +70,7 @@ Room::Room(string id, string name, string description)
     this->id = id; 
     this-> name = name; 
     this->description = description; 
+    keys = 0; 
 
     for(int i = 0; i<4; i++)
     {
@@ -83,29 +87,32 @@ void Room::setDirections(string north, string east, string south, string west)
     directions[3] = west; 
 }
 
-void Room::printRoom()
+void Room::printRoom(bool hasKey, bool roomKey)
 {
-    /*if(PLATFORM == "osx" || PLATFORM == "linux")
-        system("clear");
-    else
-    {
-        system("CLS");
-    }*/
+    if(hasKey)
+        keys = 1; 
 
     string roomName = "|| " + name + " ||";
+    string numKeys = "|| Keys: " + to_string(keys) + " ||";
+
     for (int i = 0; i< roomName.size(); i++)
         cout << "-";
 
-    cout << endl
-
-         << roomName << endl;
+    cout << endl << roomName << endl;
     for (int i = 0; i< roomName.size(); i++)
         cout << "-";
+        
+    cout << endl << numKeys << endl;
+    for (int i = 0; i< numKeys.size(); i++)
+        cout << "-";
+
     cout << endl << endl;
 
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl
-         << "\t" << description << endl
-         << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl; 
+         << "\t" << description << endl; 
+    if(roomKey)
+        cout << "\t" << roomHasKey << endl; 
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl; 
 
 
 }

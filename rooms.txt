@@ -100,13 +100,23 @@ END_ROOM
 
 BEGIN_ROOM
 10
+Hill
+You walk up a Hill. From the gained high ground you can see the exit. It's almost over... 
+NORTH   NULL
+EAST    11
+SOUTH   9
+WEST    7
+END_ROOM
+
+BEGIN_ROOM
+11
 Exit
 Finally you see an exit to this maze. You run happily towards it, not seeing the pit in front of you. Then you're falling. 
-NORTH   7
+NORTH   NULL
 EAST    NULL
-SOUTH   9
+SOUTH   NULL
 WEST    NULL
 END_ROOM
 
 START_ROOM 0
-ENDING_ROOM 10
+ENDING_ROOM 11
