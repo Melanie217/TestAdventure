@@ -1,0 +1,27 @@
+Erstmal groben Plan aufstellen, wie das Spiel überhaupt aussehen soll. 
+Also ich hätte gerne Räume, durch die man gehen kann. 
+Man bekommt die Richtungen angesagt, und kann sich dann dadurch bewegen. 
+Evtl Labirinth? 
+
+Also brauch ich eine Klasse "Rooms" und eine "Game", damit meine main total aufgeräumt ist. 
+
+"ROoms" sollte Himmelsrichtungen, einen Namen und eine Beschreibung besitzen. 
+an die Himmelsrichtungen werden weitere Räume angeschlossen. 
+(Anfangs zum testen 3) 
+
+Da ich zu faul war, alles immer im Code per Handabzutippen, hab ich mir angelesen, wie man aus einem Text file dinge einliest. 
+SOmit muss ich nur das Textfile abändern, wenn ich etwas an den Räumen ändern möchte. 
+
+Beim ersten mal laufen lassen hatte ich direkt einen Segmentation faul. 
+Beim Debuggen in Visual Studio konnte ihc nicht rausfinden, woran das gelegen hat, und auch die mehtode im Terminal mit entweder gdb (was bei MacOS aber extrem schwierig ist) 
+oder lldb konnten mir hier uach nicht so wirklich weiterhelfen, da mit nicht die Zeilen im Code gezeigt worden sind, wo der auftritt. 
+Also musste ich auf die alte Methode mit cout zurückgreifen, um zu testen, bis wohin der Code noch läuft. 
+Hier bin ich dann auhc recht schnell auf ein Ergebnis gekommen, war mir dann aber nicht sicher, warum hier der Fehler auftritt. 
+Es sollten eigentlich keine Probleme bei dem ZUgrifff von Game.chh auf die Variablen eines Rooms auftreten. 
+
+Also musste ich weiter auf Fehlersuche gehen, und habe ihn dann schließlich in meinem rooms.txt file gefunden. 
+Ich hatte das ende der Räume Falsch benannt, und beim einlesen und erstellen der Räume ist hier in Problem aufgetreten. 
+Der Segmentation Fehler ist somit aufgetretetn, weil die Variable da noch nicht existiert hat, auf die ich zugreifen wollte. 
+Nach beheben des Fehlers läuft das Programm wieder. 
+
+Next step: User Eingabe. 

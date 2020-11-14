@@ -1,0 +1,112 @@
+BEGIN_ROOM
+0
+Start
+The moon is shining brightly above you, and you notice you're in the middle of a maze. Now it is your turn to find the exit. 
+NORTH   NULL
+EAST    1
+SOUTH   2
+WEST    NULL
+END_ROOM
+
+BEGIN_ROOM
+1
+Thorns
+You continue on your way. Be careful! There are thorns! 
+NORTH   2
+EAST    6
+SOUTH   3
+WEST    0
+END_ROOM
+
+BEGIN_ROOM
+2
+Flowers
+You way leads you through a field of flowers. You stop to admire them. 
+NORTH   0
+EAST    3
+SOUTH   4
+WEST    1
+END_ROOM
+
+BEGIN_ROOM
+3
+Creature
+There is something on the floor... IT'S A MONSTER! RUN! NOW!
+NORTH   1
+EAST    5
+SOUTH   4
+WEST    2
+END_ROOM
+
+BEGIN_ROOM
+4
+Fountain
+Before you even arrive, you hear water running. A mouldy, foul smelling fountain is in your way. 
+NORTH   2
+EAST    5
+SOUTH   3
+WEST    8
+END_ROOM
+
+BEGIN_ROOM
+5
+Graveyard
+Many graves welcome you as you turn the corner. A shiver runs down your spine. You get the feeling you're not welcome here. 
+NORTH   6
+EAST    7
+SOUTH   4
+WEST    3
+END_ROOM
+
+BEGIN_ROOM
+6
+Old Bridge
+You walk towards an Old Bridge. It looks broken, but should be able to hold. 
+NORTH   9
+EAST    8
+SOUTH   5
+WEST    1
+END_ROOM
+
+BEGIN_ROOM
+7
+Path
+While walking, you suddenly hear whispers, but can't understand them. What is happening? 
+NORTH   10
+EAST    9
+SOUTH   8
+WEST    5
+END_ROOM
+
+BEGIN_ROOM
+8
+Sand
+Why is there sand? Noone likes sand. It goes everywhere....  
+NORTH   7
+EAST    4
+SOUTH   9
+WEST    6
+END_ROOM
+
+BEGIN_ROOM
+9
+A light?
+What is this light? Is it already dawn? How long have you been out here?  
+NORTH   8
+EAST    10
+SOUTH   6
+WEST    7
+END_ROOM
+
+BEGIN_ROOM
+10
+Exit
+Finally you see an exit to this maze. You run happily towards it, not seeing the pit in front of you. Then you're falling. 
+NORTH   7
+EAST    NULL
+SOUTH   9
+WEST    NULL
+END_ROOM
+
+START_ROOM 0
+ENDING_ROOM 10
