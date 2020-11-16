@@ -26,7 +26,7 @@ public:
 private:
     Room *currentRoom;  //points to current Room
     Key *key;
-    string endRoom;     //Saves endRoom so we can check if we arrived yet 
+    string endRoom;     //Saves endRoom so we can check if we've arrived yet 
     bool end;           //is the game over? 
     bool roomHasKey;
 };
@@ -150,13 +150,14 @@ void Game::userInput()
                 cout << "\t You chose " << input << endl
                      << endl
                      << endl;
-                if((rooms[currentRoom->getNextRoom(d)]->getId() == key->getUnlockRoom() && key->getPickedUp()))
+                if((rooms[currentRoom->getNextRoom(d)]->getId() == key->getUnlockRoom() && key->getPickedUp())) //Compare if the next Room, is the Room the Key unlocks, and if the Key has been picked up
                 {
                     currentRoom = rooms[currentRoom->getNextRoom(d)];
 
-                } else if(rooms[currentRoom->getNextRoom(d)]->getId() == key->getUnlockRoom() && key->getPickedUp() == false) 
+                } else if(rooms[currentRoom->getNextRoom(d)]->getId() == key->getUnlockRoom() && !key->getPickedUp()) 
                 {
                     cout << "\t You need a Key to unlock this room!" << endl; 
+                    
                 } else if(rooms[currentRoom->getNextRoom(d)]->getId() != key->getUnlockRoom())
                 {
                     currentRoom = rooms[currentRoom->getNextRoom(d)];

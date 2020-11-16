@@ -26,7 +26,9 @@ int main() {
          << "\t Anything else will cancel the game. You can type in  ~ exit ~  throughout the game to leave." << endl << endl
          << ">> ";
 
-    cin >> wantToPlay; 
+    //cin >> wantToPlay; 
+    wantToPlay = "yes";
+
     cin.clear();
     fflush(stdin); // need this, so cin buffer is clear for next user Input
     transform(wantToPlay.begin(), wantToPlay.end(), wantToPlay.begin(), ::tolower); //user Input to uppercase, to compare it with Directions
