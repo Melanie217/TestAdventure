@@ -30,3 +30,20 @@ User Eingabe war im Vergleich relativ einfach. Man muss nur prüfen ob etwas ric
 Dies muss nur abgeglichen werden, und anschließend an das Spiel weitergegeben werden. 
 
 Nächster step ist ein Key. 
+Hierfür war kurz die Überlegung, ob man eine Klasse Item.hpp erstellt, allerdings waren weitere Items nicht in der kurzzeitigen Planung, weswegen nur eine Key Klasse geschrieben wurde. 
+Am Anfang des Spiels wird dementsprechend aktuell ein Key erstellt, der den letzten "Raum" öffnet. 
+Ohne den Key, kann man den den Letzten Raum nicht betreten. 
+Hierfür wurde auch eine Key Anzeige unter den Namen des Raumes ausgegeben, die die Anzahl der Keys anzeigt. (Aktuell nur 0 und 1)
+Um das Spiel nicht immer gleich verlaufen zu lassen, wird am Anfang random eine Zahl ausgewählt (ausgeschlossen Start und Endraum), in dem der Key spawned. 
+
+Hierbei ist ein Fehler aufgetreten, da man auch ohne Key den letzten Raum betreten konnte. 
+Debuggen hat leider unter MacOs nicht funktioniert, da anscheinend die Usereingabe nicht supported wird? - Hier bin ich nicht ganz schlau rausgeworden. 
+ALso hab ich mir eine Windows Partition erstellt, hier VSC geladen, mit MinGW und git, und es hier erneut versucht. 
+Nach einigen Problemen mit der task.json und launch.json konnte ich hier debuggen, und den Fehler feststellen. 
+Ich hatte eine Variable doppelt deklariert, einmal lokal und einmal global. 
+Leider wurden die Werte, die für mich wichtig waren nur lokal gespeichert und nicht global. Somit hatte ich den Fehler gefunden, der mir so nicht aufgefallen ist. 
+
+Ein anderes interessantes Ereignis ist mir auch aufgefallen, als ich unter Windwos debugged habe. 
+Hier wurde mir öfter eine andere Zahl ausgegeben beim Randomizen des Keyraumes. 
+unter MacOs ist bis jetzt fast immer der gleiche Raum ausgegeben worden. Bin mir nicht sicher, an was das liegt. 
+Denn immer die gleiche Zahl kann auch zufällig sein. 
