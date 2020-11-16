@@ -35,7 +35,7 @@ Game::Game() //define Constructor
 {
     currentRoom = nullptr;
     end = false;
-    string endRoom = "";
+    endRoom = "";
     roomSetUp();
     roomIsKey = to_string((rand() %(rooms.size()-2))+1); //gets one random room that has a key - Except Start and End
     roomHasKey = false; 
@@ -147,21 +147,21 @@ void Game::userInput()
             rightInput = true;
             if (currentRoom->directionAvailable(d))
             {
-                cout << "\t You chose " << input << endl
-                     << endl
-                     << endl;
+                cout << "\t You chose " << input << endl;
+
                 if((rooms[currentRoom->getNextRoom(d)]->getId() == key->getUnlockRoom() && key->getPickedUp())) //Compare if the next Room, is the Room the Key unlocks, and if the Key has been picked up
                 {
                     currentRoom = rooms[currentRoom->getNextRoom(d)];
 
                 } else if(rooms[currentRoom->getNextRoom(d)]->getId() == key->getUnlockRoom() && !key->getPickedUp()) 
                 {
-                    cout << "\t You need a Key to unlock this room!" << endl; 
+                    cout << "\t !!!   You need a Key to unlock this room!   !!!" << endl; 
                     
                 } else if(rooms[currentRoom->getNextRoom(d)]->getId() != key->getUnlockRoom())
                 {
                     currentRoom = rooms[currentRoom->getNextRoom(d)];
                 }
+                cout << endl; 
             }
             else
             {

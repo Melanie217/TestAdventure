@@ -50,7 +50,7 @@ Room::Room()
     name = " "; 
     description = " "; 
     keys = 0; 
-    string roomHasKey = "Oh! Looks like you found a key! What is it for?";
+    roomHasKey = "Oh! Looks like you found a key! What is it for?";
 
     for(int i = 0; i<4; i++) //set direction to default
     {
@@ -64,7 +64,7 @@ Room::Room(string id, string name, string description)
     this-> name = name; 
     this->description = description; 
     keys = 0; 
-    string roomHasKey = "Oh! Looks like you found a key! What is it for?"; 
+    roomHasKey = "Oh! Looks like you found a key! What is it for?"; 
 
     for(int i = 0; i<4; i++)
     {
