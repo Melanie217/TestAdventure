@@ -155,7 +155,7 @@ void Game::userInput()
 
                 } else if(rooms[currentRoom->getNextRoom(d)]->getId() == key->getUnlockRoom() && !key->getPickedUp()) 
                 {
-                    cout << "\t !!!   You need a Key to unlock this room!   !!!" << endl; 
+                    cout << endl << "\t !!!   You need a Key to unlock this room!   !!!" << endl;
                     
                 } else if(rooms[currentRoom->getNextRoom(d)]->getId() != key->getUnlockRoom())
                 {
