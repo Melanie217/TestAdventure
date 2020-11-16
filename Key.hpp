@@ -9,16 +9,18 @@ class Key
 {
     public: 
         Key(); 
-        Key(string name, string roomID);
+        Key(string name, string roomID, string unlockRoom);
         string getName(); 
         bool getPickedUp(); 
         void setPickedUp(bool b); 
         string getRoomID(); 
+        string getUnlockRoom(); 
 
     private:
         string name;
         bool hasBeenPickedUp; 
         string roomID; 
+        string unlockRoom; 
                 
 
 };
@@ -30,10 +32,11 @@ Key::Key()
     roomID = "";
 }
 
-Key::Key(string name, string roomID)
+Key::Key(string name, string roomID, string unlockRoom)
 {
     this->name = name; 
     this->roomID = roomID; 
+    this->unlockRoom = unlockRoom; 
     hasBeenPickedUp = false; 
 }
 
@@ -53,6 +56,11 @@ string Key::getRoomID()
 void Key::setPickedUp(bool b)
 {
     hasBeenPickedUp = b; 
+}
+
+string Key::getUnlockRoom()
+{
+    return unlockRoom; 
 }
 
 

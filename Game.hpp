@@ -20,7 +20,7 @@ public:
     bool roomSetUp(); //reads rooms from a txt file
     map<string, Room *> rooms;  //sort Rooms with ID into map
     void userInput();
-    string roomKey = ""; 
+    string roomIsKey = ""; 
 
 private:
     Room *currentRoom;  //points to current Room
@@ -36,8 +36,8 @@ Game::Game() //define Constructor
     end = false;
     string endRoom = "";
     roomSetUp();
-    roomKey = to_string((rand() %(rooms.size()-2))+1); //gets one random room that has a key - Except Start and End
-    key = new Key("ExitKey", roomKey); 
+    roomIsKey = to_string((rand() %(rooms.size()-2))+1); //gets one random room that has a key - Except Start and End
+    key = new Key("ExitKey", roomIsKey, endRoom); 
    
 }
 

@@ -35,7 +35,7 @@ class Room
         Room(); 
         Room(string id, string name, string description); 
         void setDirections(string north, string east, string south, string west); 
-        void printRoom(bool hasKey, bool roomKey); //Room Output to Terminal 
+        void printRoom(bool hasKey, bool roomIsKey); //Room Output to Terminal 
         void printDirections(); //Neighbours/Directions
         int keys; 
         string getId();
@@ -87,7 +87,7 @@ void Room::setDirections(string north, string east, string south, string west)
     directions[3] = west; 
 }
 
-void Room::printRoom(bool hasKey, bool roomKey)
+void Room::printRoom(bool hasKey, bool roomIsKey)
 {
     if(hasKey)
         keys = 1; 
@@ -110,7 +110,7 @@ void Room::printRoom(bool hasKey, bool roomKey)
 
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl
          << "\t" << description << endl; 
-    if(roomKey)
+    if(roomIsKey)
         cout << endl << "\t" << roomHasKey << endl; 
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl; 
 
