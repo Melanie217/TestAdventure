@@ -148,7 +148,17 @@ void Game::userInput()
                 cout << "\t You chose " << input << endl
                      << endl
                      << endl;
-                currentRoom = rooms[currentRoom->getNextRoom(d)];
+                if((rooms[currentRoom->getNextRoom(d)]->getId() == key->getUnlockRoom() && key->getPickedUp()))
+                {
+                    currentRoom = rooms[currentRoom->getNextRoom(d)];
+
+                } else if(rooms[currentRoom->getNextRoom(d)]->getId() == key->getUnlockRoom() && key->getPickedUp() == false) 
+                {
+                    cout << "\t You need a Key to unlock this room!" << endl; 
+                } else if(rooms[currentRoom->getNextRoom(d)]->getId() != key->getUnlockRoom())
+                {
+                    currentRoom = rooms[currentRoom->getNextRoom(d)];
+                }
             }
             else
             {
