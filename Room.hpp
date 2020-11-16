@@ -1,11 +1,3 @@
-#if defined(_WIN32) || defined(_WIN64)          //depending on OS, you have to change the clear screen command
-    #define PLATFORM "windows"
-#elif defined(__linux__)
-    #define PLATFORM "linux"
-#elif defined(__APPLE__)
-    #define PLATFORM "osx"
-#endif
-
 #ifndef ROOM_HPP
 #define ROOM_HPP
 
@@ -49,7 +41,7 @@ class Room
         string name; 
         string description;
         string directions[4]; 
-        string roomHasKey = "Oh! Looks like you found a key! What is it for?"; 
+        string roomHasKey; 
 }; 
 
 Room::Room()
@@ -58,6 +50,7 @@ Room::Room()
     name = " "; 
     description = " "; 
     keys = 0; 
+    string roomHasKey = "Oh! Looks like you found a key! What is it for?";
 
     for(int i = 0; i<4; i++) //set direction to default
     {
@@ -71,6 +64,7 @@ Room::Room(string id, string name, string description)
     this-> name = name; 
     this->description = description; 
     keys = 0; 
+    string roomHasKey = "Oh! Looks like you found a key! What is it for?"; 
 
     for(int i = 0; i<4; i++)
     {

@@ -1,24 +1,22 @@
-#if defined(_WIN32) || defined(_WIN64)          //depending on OS, you have to change the clear screen command
-    #define PLATFORM "windows"
-#elif defined(__linux__)
-    #define PLATFORM "linux"
-#elif defined(__APPLE__)
-    #define PLATFORM "osx"
-#endif
-
 #include <iostream>
 #include <string>
 #include "Game.hpp"
 
 using namespace std;
 
-int main() {
-    if(PLATFORM == "osx" || PLATFORM == "linux")
+void clearScreen()
+{
+    #ifdef __linux__ 
         system("clear");
-    else
-    {
+    #elif __APPLE__
+        system("clear");
+    #elif _WIN32
         system("CLS");
-    }
+    #endif
+}
+
+int main() {
+    clearScreen(); 
     string wantToPlay = ""; 
     
     cout << "\t~~~~~~~~~~~~~~~~~~~~~~~" << endl 
@@ -33,12 +31,7 @@ int main() {
     fflush(stdin); // need this, so cin buffer is clear for next user Input
     transform(wantToPlay.begin(), wantToPlay.end(), wantToPlay.begin(), ::tolower); //user Input to uppercase, to compare it with Directions
 
-    if(PLATFORM == "osx" || PLATFORM == "linux")
-            system("clear");
-        else
-        {
-        system("CLS");
-        }
+    clearScreen(); 
 
     if(wantToPlay == "yes")
     {
@@ -51,8 +44,5 @@ int main() {
              << "\t~~~~~~~~~~~~~~~~~~~~" << endl << endl;
         return 0; 
     }
-    
-        
-    
      
 }
