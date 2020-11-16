@@ -26,8 +26,8 @@ int main() {
          << "\t Anything else will cancel the game. You can type in  ~ exit ~  throughout the game to leave." << endl << endl
          << ">> ";
 
-    //cin >> wantToPlay; 
-    wantToPlay = "yes";
+    cin >> wantToPlay; 
+    //wantToPlay = "yes";
 
     cin.clear();
     fflush(stdin); // need this, so cin buffer is clear for next user Input
