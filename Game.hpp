@@ -8,6 +8,7 @@
 #include <algorithm>
 #include "Room.hpp"
 #include "Key.hpp"
+#include "Helpful.hpp"
 
 using namespace std;
 
@@ -29,6 +30,7 @@ private:
     string endRoom;     //Saves endRoom so we can check if we've arrived yet 
     bool end;           //is the game over? 
     bool roomHasKey;
+    Helpful h; 
 };
 
 Game::Game() //define Constructor
@@ -69,9 +71,8 @@ void Game::run() //define void run -> should run/start the game
         userInput(); //reads UserInput
     }
 
-    cout << "~ The End ~" << endl
-         << endl
-         << endl;
+    h.slowPrinting("~ The End ~"); 
+    cout << endl << endl;
 }
 
 bool Game::roomSetUp()
@@ -131,7 +132,7 @@ void Game::userInput()
 {   
     //Hier Exception Handling einfügen. -> was kann passieren? 
     string input;
-    cout << "\t Where would you like to go? ";
+    cout << "\t"; h.slowPrinting("Where would you like to go? "); 
     cout << " >> ";
     getline(cin, input);
     transform(input.begin(), input.end(), input.begin(), ::toupper); //user Input to uppercase, to compare it with Directions
@@ -155,7 +156,8 @@ void Game::userInput()
 
                 } else if(rooms[currentRoom->getNextRoom(d)]->getId() == key->getUnlockRoom() && !key->getPickedUp()) 
                 {
-                    cout << endl << "\t !!!   You need a Key to unlock this room!   !!!" << endl;
+                    cout << endl << "\t"; 
+                    h.slowPrinting("!!!   You need a Key to unlock this room!   !!!"); 
                     
                 } else if(rooms[currentRoom->getNextRoom(d)]->getId() != key->getUnlockRoom())
                 {
@@ -172,10 +174,11 @@ void Game::userInput()
     if (!rightInput && input == "EXIT") //if User wants to exit it will happen here 
     {
         cout << endl << endl 
-             << "\t~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl 
-             << "\t Thank you for playing :)" << endl
-             << "\t See you next time!" << endl
-             << "\t~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl;
+             << "\t~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl << "\t";  
+        h.slowPrinting("Thank you for playing :)"); 
+        cout << "\t"; 
+        h.slowPrinting("See you next time!");
+        cout << "\t~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl;
         exit(0); 
     }
     else if(!rightInput)//otherwise it was not valid

@@ -1,30 +1,32 @@
 #include <iostream>
 #include <string>
 #include "Game.hpp"
+#include "Helpful.hpp"
 
 using namespace std;
 
 void clearScreen()
 {
-    #ifdef __linux__ 
-        system("clear");
-    #elif __APPLE__
-        system("clear");
-    #elif _WIN32
+    #ifdef _WIN32
         system("CLS");
+    #else 
+        system("clear");
     #endif
 }
 
 int main() {
+    
     clearScreen(); 
     string wantToPlay = ""; 
+    Helpful h; 
     
-    cout << "\t~~~~~~~~~~~~~~~~~~~~~~~" << endl 
-         << "\t Do you want to start?" << endl
-         << "\t~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl
-         << "\t Please type  ~ yes ~  if you wish to do so." << endl 
-         << "\t Anything else will cancel the game. You can type in  ~ exit ~  throughout the game to leave." << endl << endl
-         << ">> ";
+    cout << "\t~~~~~~~~~~~~~~~~~~~~~~~" << endl <<"\t"; 
+         h.slowPrinting("Do you want to start?"); //<< "\t Do you want to start?" << endl
+         cout << "\t~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl <<"\t"; 
+         h.slowPrinting("Please type  ~ yes ~  if you wish to do so."); //<< "\t Please type  ~ yes ~  if you wish to do so." << endl 
+         cout << "\t"; 
+         h.slowPrinting("Anything else will cancel the game. You can type in  ~ exit ~  throughout the game to leave.");
+         cout << endl << endl << ">> ";
 
     cin >> wantToPlay; 
     //wantToPlay = "yes";

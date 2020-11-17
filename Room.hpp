@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string> 
+#include "Helpful.hpp"
 using namespace std; 
 
 enum Direction {NORTH = 0, EAST = 1, SOUTH = 2, WEST = 3}; 
@@ -42,6 +43,7 @@ class Room
         string description;
         string directions[4]; 
         string roomHasKey; 
+        Helpful h; 
 }; 
 
 Room::Room()
@@ -103,9 +105,13 @@ void Room::printRoom(bool hasKey, bool roomIsKey)
     cout << endl << endl;
 
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl
-         << "\t" << description << endl; 
-    if(roomIsKey)
-        cout << endl << "\t" << roomHasKey << endl; 
+         << "\t"; 
+    h.slowPrinting(description); 
+    if(roomIsKey) 
+    {
+        cout << endl << "\t"; 
+        h.slowPrinting(roomHasKey); 
+    }
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl; 
 
 
@@ -113,7 +119,9 @@ void Room::printRoom(bool hasKey, bool roomIsKey)
 
 void Room::printDirections()
 {
-    cout << "\t Please choose a direction: "; 
+    cout << "\t"; 
+    h.slowPrinting("Please choose a direction: "); 
+    cout << endl << "\t"; 
     for (int i = 0; i<4; i++)
     {
         if (directions[i] != "NULL")
